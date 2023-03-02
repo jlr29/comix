@@ -11,11 +11,14 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.jlrone.comix.ui.theme.ComixTheme
@@ -29,8 +32,10 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     color = MaterialTheme.colors.background
                 ) {
-                    BirthdayCardWithPic(stringResource(R.string.happy_birthday_text),
-                        stringResource(R.string.signature_text)
+                    ArticleWithPic(stringResource(R.string.title),
+                        stringResource(R.string.intro),
+                        stringResource(R.string.script),
+                        painterResource(R.drawable.bg_compose_background)
                     )
                 }
             }
@@ -39,40 +44,44 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun BirthdayCard(message: String, from: String, modifier: Modifier = Modifier) {
-    Column(
-        modifier = modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Top,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ){
-        Text(text = message,
-            fontSize = 36.sp,
-            modifier = Modifier
-                .padding(top = 28.dp)
-        )
-        Text(text = from,
-            fontSize = 24.sp,
-            modifier = Modifier
-                .padding(top = 16.dp, end = 16.dp)
-                .align(alignment = Alignment.End)
-        )
-    }
-}
-@Composable
-fun BirthdayCardWithPic(message: String, from: String) {
-    val image = painterResource(R.drawable.androidparty)
-    Box {
-        Image(painter = image,
+fun ArticleWithPic(title: String,
+                   intro: String,
+                   text: String,
+                   image: Painter,
+                   modifier: Modifier = Modifier
+) {
+    Column(modifier = modifier) {
+        Image(
+            painter = image,
             contentDescription = null,
-            contentScale = ContentScale.Crop)
-        BirthdayCard(message = message, from = from)
+
+        )
+        Text(
+            text = title,
+            fontSize = 24.sp,
+            modifier = Modifier.padding(16.dp)
+        )
+        Text(
+            text = intro,
+            modifier = Modifier.padding(start = 16.dp, end = 16.dp),
+            textAlign = TextAlign.Justify
+        )
+        Text(
+            text = text,
+            modifier = Modifier.padding(16.dp),
+            textAlign = TextAlign.Justify
+        )
     }
 }
 
-@Preview(showBackground = false)//name = "My Preview", //showSystemUi = true
+@Preview(showBackground = true)//name = "My Preview", //showSystemUi = true
 @Composable
-fun BirthdayCardPreview() {
+fun ArticlePreview() {
     ComixTheme {
-        BirthdayCardWithPic("Angurie","- Da Guiova")
+        ArticleWithPic(stringResource(R.string.title),
+            stringResource(R.string.intro),
+            stringResource(R.string.script),
+            painterResource(R.drawable.bg_compose_background)
+        )
     }
 }
