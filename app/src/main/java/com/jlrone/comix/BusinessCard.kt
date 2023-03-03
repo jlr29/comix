@@ -1,6 +1,6 @@
 package com.jlrone.comix
 
-import android.os.Bundle
+/*import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
@@ -26,7 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.jlrone.comix.ui.theme.ComixTheme
 
-class MainActivity : ComponentActivity() {
+class BusinessCard : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -113,4 +113,4 @@ fun BusinessCardPreview() {
     ComixTheme {
         BusinessCard()
     }
-}
+}*/

@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Comix</string>
-    <string name="titolo1">Text composable</string>
-    <string name="titolo2">Image composable</string>
-    <string name="titolo3">Row composable</string>
-    <string name="titolo4">Column composable</string>
-    <string name="texto">pirupiru pi piroro piru pa</string>
+    <string name="full_name">Giovanni Varde</string>
+    <string name="title">Engineer</string>
+    <string name="phone_number">333xxxxxxx</string>
+    <string name="insta">"@"pirupiri</string>
+    <string name="email">pirupi@gmail.com</string>
 </resources>
